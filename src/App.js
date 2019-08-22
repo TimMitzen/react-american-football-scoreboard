@@ -1,29 +1,33 @@
 //TODO: STEP 1 - Import the useState hook.
 import React,  { useState } from "react";
-import "./App.css";
+import ReactDom from "react-dom"
 import BottomRow from "./BottomRow";
 
 
-function App() {
+function App(props) {
   //TODO: STEP 2 - Establish your applictaion's state with some useState hooks.  You'll need one for the home score and another for the away score.
-  const [homeScore, homeScored] = useState(0);
-  const [awayScore, awayScored] = useState(0);
-  const [quarterChange, quarterChanged] = useState(1);
+  const [homeScore, setHomeScore] = useState(0);
+  const [awayScore, setAwayScore] = useState(0);
+  const [seconds, setSeconds] = useState(0);
+  const [isActive, setActive] = useState(false);//sets up the timmer
  const homeTouchdown = event =>{
-   homeScored(homeScore +7);
+   setHomeScore(homeScore +7);
  }
  const homeFieldGoal = event =>{
-   homeScored(homeScore +3);
+   setHomeScore(homeScore +3);
  }
  const awayTouchdown = event => {
-    awayScored(awayScore +7);
+    setAwayScore(awayScore +7);
  }
  const awayFieldGoal = event => {
-   awayScored(awayScore +3);
+   setAwayScore(awayScore +3);
  }
- const anotherQuarter = event =>{
-   quarterChanged(quarterChange +1);
- }
+const reset = event =>{
+  setHomeScore(0);
+  setAwayScore(0);
+}
+
+
 
   return (
     <div className="container">
@@ -49,17 +53,23 @@ function App() {
           {/* TODO STEP 4 - Now we need to attach our state setter functions to click listeners. */}
           <button className="homeButtons__touchdown" onClick={homeTouchdown}>Home Touchdown</button>
           <button className="homeButtons__fieldGoal" onClick={homeFieldGoal} >Home Field Goal</button>
-          <button onClick={() => homeScored(0)}>Reset Home Score</button>
+          
         </div>
         <div className="awayButtons">
           <button className="awayButtons__touchdown" onClick={awayTouchdown}>Away Touchdown</button>
           <button className="awayButtons__fieldGoal"onClick={awayFieldGoal}>Away Field Goal</button>
-          <button onClick={() => awayScored(0)}>Reset Away Score</button>
+          <button className="resetScore"onClick={reset}>Reset Score</button>
         </div>
+        {/* <div className="timerButtons">
+          <button className="startTimer">Start Game</button>
+          <button className="stopTimer">Pause Game</button>
+          <button className="resetTimer">Reset Game</button>
+        </div> */}
         
       </section>
     </div>
   );
 }
+
 
 export default App;
