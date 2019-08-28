@@ -4,13 +4,14 @@
 }
 
 .scoreboard {
-  width: 58%;
-  margin: 10rem auto;
+ 
+  width: 80%;
+  margin: 15rem auto;
   background-color: #0b5402;
   color: white;
   border-radius: 0.5rem;
   margin-top: 10rem;
-  padding: 5rem;
+  padding: 10rem;
   border: 4px solid #aaaaaa;
 }
 
@@ -49,7 +50,7 @@
 .quarter__title {
   text-transform: uppercase;
   font-size: 3rem;
-  padding: 2rem;
+  padding: 4rem;
 }
 
 .home__score,
@@ -75,7 +76,7 @@
 
 .bottomRow {
   display: flex;
-  justify-content: space-around;
+  justify-content: space-between;
   place-items: center;
   height: 20rem;
 }
@@ -86,7 +87,7 @@
 .quarter {
   display: flex;
   flex-direction: column;
-  justify-content: space-around;
+  justify-content: space-evenly;
   place-items: center;
 }
 
@@ -106,17 +107,53 @@
   border: 1px solid white;
 }
 
-.buttons {
+.buttons
+
+ {
   width: 50%;
   margin: 0 auto;
   display: flex;
-  justify-content: space-around;
+  justify-content: space-between;
+  
 }
 
 .homeButtons__touchdown,
 .homeButtons__fieldGoal,
 .awayButtons__touchdown,
-.awayButtons__fieldGoal {
+.awayButtons__fieldGoal,
+.changeQuarterButton,
+.startTimer,
+.stopTimer,
+.resetTimer,
+.resetScore,
+.changeDownButton,
+.changeYardButton,
+.changeYardsToGo
+ {
   margin: 1rem;
   border-radius: 4px;
+}
+
+.changeDownButton,
+.changeQuarterButton,
+.changeYardButton,
+.changeYardsToGo,
+.resetQuarterButton {
+  display:flex;
+  flex-direction: column;
+  
+}
+
+.changeQuarterButton {
+  margin-top: 60px;
+}
+
+.resetQuarterButton {
+  margin-left: 10px;
+}
+
+.awayButtons,
+.homeButtons {
+  display: flex;
+  
 }
